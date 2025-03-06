@@ -163,7 +163,8 @@ function removeFromCart(index) {
 	loadCart();
 }
 
-// Function to Generate QR Code for Payment
+let countdown; // Global variable for countdown timer
+
 function showQRCode() {
 	let grandTotalElement = document.getElementById('grand-total');
 	let grandTotal = parseFloat(grandTotalElement.innerText.replace("₹", "")) || 0;
@@ -173,7 +174,7 @@ function showQRCode() {
 		return;
 	}
 
-	let upiID = "ranjithram878@oksbi";  // Replace with actual UPI ID
+	let upiID = "ranjithram878@oksbi";
 	let upiURL = `upi://pay?pa=${upiID}&pn=YourStore&tr=TXN${Date.now()}&tn=Payment&am=${grandTotal}&cu=INR`;
 
 	let qrCodeURL = `https://quickchart.io/qr?text=${encodeURIComponent(upiURL)}&size=500`;
@@ -184,7 +185,36 @@ function showQRCode() {
 	document.getElementById("qr-container").style.display = "block";
 
 	alert("Scan the QR code with any UPI app to complete the payment.");
+
+	startCountdown(60); // Start 60-second countdown
 }
+
+// Function to Start the Countdown
+function startCountdown(seconds) {
+	let counterElement = document.getElementById("countdown-timer");
+	counterElement.innerText = `Time left: ${seconds}s`;
+
+	clearInterval(countdown); // Clear any existing timer
+
+	countdown = setInterval(() => {
+		seconds--;
+		counterElement.innerText = `Time left: ${seconds}s`;
+
+		if (seconds <= 0) {
+			clearInterval(countdown);
+			document.getElementById("qr-container").style.display = "none";
+			alert("Time expired! If payment is completed, thank you. If not, please try again.");
+		}
+	}, 1000);
+}
+
+// Function to Close QR Code Manually
+function closeQRCode() {
+	clearInterval(countdown);
+	document.getElementById("qr-container").style.display = "none";
+	alert("Payment confirmed! Thank you.");
+}
+
 
 
 // Function to Remove QR Code
