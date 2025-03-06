@@ -19,153 +19,153 @@
 
 	<style>
 		table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 20px;
-	background: #f6f6f6;
-}
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+			background: #f6f6f6;
+		}
 
-th,
-td {
-	padding: 10px;
-	text-align: center;
-	border-bottom: 1px solid #ddd;
-	font-size: 14px;
-}
+		th,
+		td {
+			padding: 10px;
+			text-align: center;
+			border-bottom: 1px solid #ddd;
+			font-size: 14px;
+		}
 
-th {
-	background: #eaeaea;
-	font-weight: bold;
-}
+		th {
+			background: #eaeaea;
+			font-weight: bold;
+		}
 
-img {
-	width: 50px;
-	height: auto;
-}
+		img {
+			width: 50px;
+			height: auto;
+		}
 
-.quantity {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+		.quantity {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-.quantity button {
-	padding: 5px 10px;
-	border: none;
-	background: #000;
-	color: #fff;
-	cursor: pointer;
-}
+		.quantity button {
+			padding: 5px 10px;
+			border: none;
+			background: #000;
+			color: #fff;
+			cursor: pointer;
+		}
 
-.quantity input {
-	width: 40px;
-	text-align: center;
-	margin: 0 5px;
-}
+		.quantity input {
+			width: 40px;
+			text-align: center;
+			margin: 0 5px;
+		}
 
-.remove-btn {
-	background: red;
-	color: white;
-	border: none;
-	padding: 5px 10px;
-	cursor: pointer;
-}
+		.remove-btn {
+			background: red;
+			color: white;
+			border: none;
+			padding: 5px 10px;
+			cursor: pointer;
+		}
 
-/* Responsive Design for Mobile Screens */
-@media (max-width: 768px) {
-	table {
-		font-size: 12px;
-	}
+		/* Responsive Design for Mobile Screens */
+		@media (max-width: 768px) {
+			table {
+				font-size: 12px;
+			}
 
-	th,
-	td {
-		padding: 8px;
-		font-size: 12px;
-	}
+			th,
+			td {
+				padding: 8px;
+				font-size: 12px;
+			}
 
-	img {
-		width: 40px;
-	}
+			img {
+				width: 40px;
+			}
 
-	.quantity button {
-		padding: 4px 8px;
-	}
+			.quantity button {
+				padding: 4px 8px;
+			}
 
-	.quantity input {
-		width: 30px;
-	}
+			.quantity input {
+				width: 30px;
+			}
 
-	.remove-btn {
-		padding: 4px 8px;
-		font-size: 12px;
-	}
+			.remove-btn {
+				padding: 4px 8px;
+				font-size: 12px;
+			}
 
-	/* QR Code Overlay Responsive */
-	.qr-overlay {
-		align-items: center;
-		justify-content: center;
-		padding: 20px;
-	}
+			/* QR Code Overlay Responsive */
+			.qr-overlay {
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+			}
 
-	.qr-container {
-		width: 90%;
-		padding: 15px;
-		border-radius: 8px;
-	}
+			.qr-container {
+				width: 90%;
+				padding: 15px;
+				border-radius: 8px;
+			}
 
-	.qr-container img {
-		width: 150px;
-	}
+			.qr-container img {
+				width: 150px;
+			}
 
-	.close-btn {
-		top: 5px;
-		right: 10px;
-		font-size: 20px;
-	}
-}
+			.close-btn {
+				top: 5px;
+				right: 10px;
+				font-size: 20px;
+			}
+		}
 
-@media (max-width: 480px) {
-	th,
-	td {
-		padding: 6px;
-		font-size: 10px;
-	}
+		@media (max-width: 480px) {
 
-	img {
-		width: 35px;
-	}
+			th,
+			td {
+				padding: 6px;
+				font-size: 10px;
+			}
 
-	.quantity button {
-		padding: 3px 6px;
-		font-size: 10px;
-	}
+			img {
+				width: 35px;
+			}
 
-	.quantity input {
-		width: 25px;
-		font-size: 10px;
-	}
+			.quantity button {
+				padding: 3px 6px;
+				font-size: 10px;
+			}
 
-	.remove-btn {
-		padding: 3px 6px;
-		font-size: 10px;
-	}
+			.quantity input {
+				width: 25px;
+				font-size: 10px;
+			}
 
-	.qr-container {
-		width: 95%;
-		padding: 10px;
-	}
+			.remove-btn {
+				padding: 3px 6px;
+				font-size: 10px;
+			}
 
-	.qr-container img {
-		width: 120px;
-	}
+			.qr-container {
+				width: 95%;
+				padding: 10px;
+			}
 
-	.close-btn {
-		top: 3px;
-		right: 8px;
-		font-size: 18px;
-	}
-}
+			.qr-container img {
+				width: 120px;
+			}
 
+			.close-btn {
+				top: 3px;
+				right: 8px;
+				font-size: 18px;
+			}
+		}
 	</style>
 
 </head>
@@ -267,7 +267,7 @@ img {
 				<h3 class="mt-2 me-4">Total: <span id="grand-total">₹0.00</span></h3>
 				<button class="btn" onclick="showQRCode()">Pay Now</button>
 			</div>
-		
+
 			<!-- QR Code Display -->
 			<div id="qr-container" class="text-center mt-4" style="display: none;">
 				<h4>Scan to Pay</h4>
@@ -276,8 +276,8 @@ img {
 				<p id="countdown-timer" style="font-weight: bold; font-size: 18px; color: red;"></p>
 				<button onclick="hideQRCode()" class="btn btn-danger">Close QR Code</button>
 			</div>
-			
-			
+
+
 
 		</div>
 	</div>
@@ -359,7 +359,8 @@ img {
 
 					<div class="col-lg-6 text-center text-lg-end">
 						<ul class="list-unstyled d-inline-flex ms-auto">
-							<li><a href="#"> Designed by GOKULK</a></li>
+							<li><a href="https://ransportfolio.netlify.app/" target="_blank"> Designed by GOKULK</a>
+							</li>
 						</ul>
 					</div>
 
