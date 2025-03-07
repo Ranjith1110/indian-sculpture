@@ -184,6 +184,7 @@ function showQRCode() {
 
 	document.getElementById("qr-container").style.display = "block";
 	document.getElementById("payment-confirmation").style.display = "block";
+	document.getElementById("payment-form").style.display = "block";
 
 	alert("Scan the QR code with any UPI app to complete the payment.");
 
@@ -215,6 +216,7 @@ function closeQRCode() {
 	clearInterval(countdown);
 	document.getElementById("qr-container").style.display = "none";
 	document.getElementById("payment-confirmation").style.display = "none";
+	document.getElementById("payment-form").style.display = "none";
 	alert("Payment confirmed! Thank you.");
 }
 
@@ -224,7 +226,57 @@ function closeQRCode() {
 function hideQRCode() {
 	document.getElementById("qr-container").style.display = "none";
 	document.getElementById("payment-confirmation").style.display = "none";
+	document.getElementById("payment-form").style.display = "none";
 }
+
+
+function sendToWhatsApp() {
+	const name = document.getElementById("name").value;
+	const phone = document.getElementById("phone").value;
+	const address = document.getElementById("address").value;
+	const orderThings = document.getElementById("order-things").value;
+	const description = document.getElementById("description").value;
+
+	if (name && phone && address) {
+		const message = `Payment Details:\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nOrder: ${orderThings}\nDescription: ${description}`;
+		const whatsappURL = `https://wa.me/+918838054368?text=${encodeURIComponent(message)}`;
+		window.open(whatsappURL, "_blank");
+	} else {
+		alert("Please fill all required fields!");
+	}
+}
+
+function updateProductDetails(selectElement) {
+	// Get the selected option
+	var selectedOption = selectElement.options[selectElement.selectedIndex];
+
+	// Get the selected price and size
+	var selectedPrice = selectedOption.value;
+	var selectedSize = selectedOption.getAttribute("data-size");
+
+	// Find the closest product container
+	var productItem = selectElement.closest(".product-item");
+
+	// Find the product title element
+	var productTitleElement = productItem.querySelector(".product-title");
+
+	// Get the original product title (without size)
+	var originalTitle = productTitleElement.getAttribute("data-original-title");
+	if (!originalTitle) {
+		originalTitle = productTitleElement.textContent;
+		productTitleElement.setAttribute("data-original-title", originalTitle); // Store original title
+	}
+
+	// Update product title with selected size
+	productTitleElement.textContent = originalTitle + ", " + selectedSize;
+
+	// Update product price
+	var productPriceElement = productItem.querySelector(".product-price");
+	productPriceElement.textContent = "₹" + selectedPrice;
+}
+
 
 // Load Cart on Page Load
 window.onload = loadCart;
+
+
