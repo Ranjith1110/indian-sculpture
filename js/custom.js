@@ -183,6 +183,7 @@ function showQRCode() {
 	qrCodeImage.src = qrCodeURL;
 
 	document.getElementById("qr-container").style.display = "block";
+	document.getElementById("payment-confirmation").style.display = "block";
 
 	alert("Scan the QR code with any UPI app to complete the payment.");
 
@@ -213,6 +214,7 @@ function startCountdown(seconds) {
 function closeQRCode() {
 	clearInterval(countdown);
 	document.getElementById("qr-container").style.display = "none";
+	document.getElementById("payment-confirmation").style.display = "none";
 	alert("Payment confirmed! Thank you.");
 }
 
@@ -221,6 +223,7 @@ function closeQRCode() {
 // Function to Remove QR Code
 function hideQRCode() {
 	document.getElementById("qr-container").style.display = "none";
+	document.getElementById("payment-confirmation").style.display = "none";
 }
 
 // Load Cart on Page Load
