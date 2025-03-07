@@ -186,7 +186,7 @@ function showQRCode() {
 
 	alert("Scan the QR code with any UPI app to complete the payment.");
 
-	startCountdown(60); // Start 60-second countdown
+	startCountdown(240); // Start 4-minute countdown
 }
 
 // Function to Start the Countdown
@@ -207,6 +207,7 @@ function startCountdown(seconds) {
 		}
 	}, 1000);
 }
+
 
 // Function to Close QR Code Manually
 function closeQRCode() {

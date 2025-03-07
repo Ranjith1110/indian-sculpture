@@ -3,6 +3,7 @@
 body {
   overflow-x: hidden;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -39,7 +40,7 @@ a.more {
 }
 
 .custom-navbar .navbar-brand {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 600;
 }
 
