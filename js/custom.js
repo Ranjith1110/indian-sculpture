@@ -174,7 +174,7 @@ function showQRCode() {
 		return;
 	}
 
-	let upiID = "ranjithram878@oksbi";
+	let upiID = "pinkyprithiv6@okhdfcbank";
 	let upiURL = `upi://pay?pa=${upiID}&pn=YourStore&tr=TXN${Date.now()}&tn=Payment&am=${grandTotal}&cu=INR`;
 
 	let qrCodeURL = `https://quickchart.io/qr?text=${encodeURIComponent(upiURL)}&size=500`;
@@ -221,7 +221,6 @@ function closeQRCode() {
 }
 
 
-
 // Function to Remove QR Code
 function hideQRCode() {
 	document.getElementById("qr-container").style.display = "none";
@@ -239,7 +238,7 @@ function sendToWhatsApp() {
 
 	if (name && phone && address) {
 		const message = `Payment Details:\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nOrder: ${orderThings}\nDescription: ${description}`;
-		const whatsappURL = `https://wa.me/+918838054368?text=${encodeURIComponent(message)}`;
+		const whatsappURL = `https://wa.me/+918056438344?text=${encodeURIComponent(message)}`;
 		window.open(whatsappURL, "_blank");
 	} else {
 		alert("Please fill all required fields!");
