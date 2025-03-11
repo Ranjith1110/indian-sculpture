@@ -230,20 +230,42 @@ function hideQRCode() {
 
 
 function sendToWhatsApp() {
-	const name = document.getElementById("name").value;
-	const phone = document.getElementById("phone").value;
-	const address = document.getElementById("address").value;
-	const orderThings = document.getElementById("order-things").value;
-	const description = document.getElementById("description").value;
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const description = document.getElementById("description").value;
 
-	if (name && phone && address) {
-		const message = `Payment Details:\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nOrder: ${orderThings}\nDescription: ${description}`;
-		const whatsappURL = `https://wa.me/+918056438344?text=${encodeURIComponent(message)}`;
-		window.open(whatsappURL, "_blank");
-	} else {
-		alert("Please fill all required fields!");
-	}
+    if (!name || !phone || !address) {
+        alert("Please fill all required fields!");
+        return;
+    }
+
+    // Get cart details from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    // Format cart items
+    let cartDetails = cart.map((item, index) => 
+        `${index + 1}. ${item.title} - ${item.price} x ${item.quantity}`
+    ).join("\n");
+
+    // Construct WhatsApp message
+    const message = `🛒 *Order Details:*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n🏠 *Address:* ${address}\n\n🛍️ *Items Ordered:*\n${cartDetails}\n\n📜 *Description:* ${description}`;
+
+    console.log("WhatsApp Message:", message); // Debugging step
+
+    // Use API to send even if number is NOT saved
+    const whatsappURL = `https://api.whatsapp.com/send?phone=918838054368&text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappURL, "_blank");
 }
+
+
+
 
 function updateProductDetails(selectElement) {
 	// Get the selected option
