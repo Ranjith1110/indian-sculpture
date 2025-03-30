@@ -174,7 +174,7 @@ function showQRCode() {
 		return;
 	}
 
-	let upiID = "pinkyprithiv6@okhdfcbank";
+	let upiID = "ranjithram878@oksbi";
 	let upiURL = `upi://pay?pa=${upiID}&pn=YourStore&tr=TXN${Date.now()}&tn=Payment&am=${grandTotal}&cu=INR`;
 
 	let qrCodeURL = `https://quickchart.io/qr?text=${encodeURIComponent(upiURL)}&size=500`;
